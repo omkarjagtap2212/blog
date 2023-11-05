@@ -43,6 +43,7 @@ export class Authservice {
         try {
             return await this.account.createEmailSession(email, password)
         } catch (error) {
+            
             throw error
 
         }
@@ -70,47 +71,7 @@ export class Authservice {
     }
 
 
-    // async login ({email,password}){
-    //     try {
-    //         return await this.account.createEmailSession(email,password)
-            
-    //     } catch (error) {
-    //         console.log("Error for::Login:",error)
-            
-    //     }
-    // }
-
-
-    // async getCurrentUser(){
-
-    //     try {
-    //         return await this.account.get()
-            
-    //     } catch (error) {
-    //         console.log("Error for::getuserstatus:",error)
-
-            
-    //     }
-
-    // }
-
-    // async logout (){
-    //     try {
-    //         return await this.account.deleteSessions()
-            
-    //     } catch (error) {
-    //         console.log("Error for::LogOut:",error)
-    //     }
-    // }
-
-
 }
-
-
-
-// const authservice =new Authservice()
-// export default authservice
-
 
 const authservice = new Authservice()
 
