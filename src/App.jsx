@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import  React ,{ useEffect, useState } from "react";
 import { Footer, Header } from "./components/";
 import { useDispatch } from "react-redux";
 import authservice from "./appwrite/auth";
@@ -17,7 +17,7 @@ function App() {
         if (userData) {
           dispatch(login({ userData }));
         } else {
-          dispatch(logout());
+        dispatch(logout());
         }
       })
       .finally(() => setloading(false));

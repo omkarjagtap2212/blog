@@ -25,5 +25,5 @@ dist-ssr
 
 # Ignore local environment files (you can add your .env here)
 MegaBlog/.env
-*.env
+.env
 

@@ -1,4 +1,4 @@
-import conf from "../conf/conf";
+import conf from "../conf/conf.js";
 
 import { Client, ID, Databases, Storage, Query } from "appwrite";
 
@@ -61,7 +61,7 @@ export class Service {
         }
     }
 
-    async getdocumentpost(slug) {
+    async getPost(slug) {
         try {
             return await this.databases.getDocument(conf.appwriteDataBaseId, conf.appwriteCollectionId, slug)
 
@@ -76,7 +76,7 @@ export class Service {
 
 
 
-    async getposts(quaries = [Query.equal("status", "active")]) {
+    async getPosts(quaries = [Query.equal("status", "active")]) {
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDataBaseId,
@@ -113,7 +113,7 @@ export class Service {
     }
 
 
-    async deleteFilePost(fileId) {
+    async deleteFile(fileId) {
         try {
             await this.bucket.deleteFile(
                 conf.appwriteBucketId,
@@ -129,23 +129,22 @@ export class Service {
 
         }
     }
-///*************not a need  promise or async function it is dirct catch and error */
-    filepreview(fileId) {
-        try {
-            return this.bucket.getFilePreview(
-                conf.appwriteBucketId,
-                fileId
+    ///*************not a need  promise or async function it is dirct catch and error */
+    getFilePreview(fileId) {
 
-            )
+        return this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId
 
-        } catch (error) {
-            console.log("error is ::filePreview", error)
+        )
 
-        }
+
 
     }
 
 }
+
+
 
 const service = new Service()
 
